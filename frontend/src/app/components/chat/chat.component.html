@@ -1,1 +1,47 @@
-<p>chat works!</p>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="PreviousMessages" *ngFor="let prevmsg of prevMessages">
+    <div *ngIf="prevmsg.sender == senderId && prevmsg.receiver == receiverId">
+        <div class="container">
+            <div class="right">
+                <p class="sender">You</p>
+            </div>
+            <p>{{ prevmsg.message }}</p>
+        </div>
+    </div>
+    <div *ngIf="prevmsg.sender == receiverId && prevmsg.receiver == senderId">
+        <div class="container-darker">
+            <p>{{ prevmsg.message }}</p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <hr>
+    <p style="color: dodgerblue ;font-size: 14px; text-align: center;  padding: 0; font-family: 'Open Sans';">Now</p>
+    <hr>
+</div>
+
+<div class="Messages" *ngFor="let data of socketMessages">
+    <div *ngIf="data.senderid == receiverId">
+        <div class="container-darker">
+            <p>{{ data.msg }}</p>
+        </div>
+    </div>
+    <div *ngIf="data.receiverid == receiverId && data.senderid == senderId">
+        <div class="container">
+            <div class="right">
+                <p class="sender">You</p>
+            </div>
+            <p>{{ data.msg }}</p>
+        </div>
+    </div>
+</div>
+<br>
+<div class="msg-box">
+    <input type="text" [(ngModel)]="message" (keyup)="$event.keyCode == 13 && sendMessage()" />
+    <button class="but1" (click)="sendMessage()"><i class="fa fa-paper-plane"></i></button>
+</div>

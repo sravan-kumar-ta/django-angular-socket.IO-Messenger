@@ -14,6 +14,10 @@ export class UserService {
     let endPoint = `${this.url}/token/`
     return this.http.post(endPoint, data)
   }
+  
+  public addNewToken(tokenkey: string) {
+    localStorage.setItem('auth_token', tokenkey);
+  }
 
   registerUser(data: any) {
     let endPoint = `${this.url}/register/`
