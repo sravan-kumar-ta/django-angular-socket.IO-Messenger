@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
 from chat.models import Chat
@@ -24,3 +26,13 @@ class ChatViewSet(ModelViewSet):
     authentication_classes = [TokenAuthentication]
     queryset = Chat.objects.all()
     serializer_class = ChatSerializer
+
+
+class GetUser(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    
+    def get(self, request):
+        user = request.user
+        serializer = UserSerializer(user)
+        return Response(serializer.data)

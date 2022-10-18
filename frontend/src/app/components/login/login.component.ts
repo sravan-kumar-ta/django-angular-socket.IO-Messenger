@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { TokenManagerService } from 'src/app/services/token-manager.service';
 import { UserService } from 'src/app/services/user.service';
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
     private services: UserService,
     private tokenManager: TokenManagerService,
     private mainComponent: AppComponent,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -28,10 +30,9 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.services.loginUser(this.loginData).subscribe(
       (response: any) => {
-        console.log(response.token)
         this.tokenManager.addNewToken(response.token);
         this.mainComponent.user = true
-        // navigate to home page
+        this.router.navigate(['/home'])
       },
       error => {
         if (error.error.non_field_errors != null) {

@@ -1,0 +1,11 @@
+<h1>Welcome {{ currentUser.username }}</h1>
+
+<h3>Choose someone to chat..!</h3>
+
+<div class="Users" *ngFor="let user of users">
+    <h3>
+        <a *ngIf="user.id != currentUser.id" [routerLink]="['/chat', currentUser.id, user.id]">
+            {{ user.username }}
+        </a>
+    </h3>
+</div>
