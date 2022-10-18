@@ -39,6 +39,13 @@ This creates an **Angular** front-end server in ***localhost:4200***(the one whi
 * Finally to play with the **Angular** front-end open terminal from the folder ***django-angular-socket.IO-Messenger***
   ```
   cd frontend
-  ng serve -o
+  ng serve
   ```
+  If there's an ```unhandled exception : Cannot find module @angular-devkit/build-angular/package.json``` then :
+  ```
+  npm install -g @angular/cli
+  npm install @angular-devkit/build-angular
+  ng serve
+  ```
+  And, it should work.
 * Open ***localhost:4200*** in multiple tabs for interacting with the chat app :relaxed:
