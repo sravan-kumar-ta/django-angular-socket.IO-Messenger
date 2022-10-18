@@ -1,0 +1,105 @@
+h4 {
+    font-family: "Open Sans";
+    color: dodgerblue;
+    text-align: center;
+}
+.container {
+    padding-bottom: 75px;
+}
+
+.site-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: dodgerblue;
+    color: white;
+    text-align: center;
+}
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 8px 8px 20px 50px;
+    text-decoration: none;
+    font-family: "Open Sans";
+    font-size: 16px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 36px;
+    margin-left: 50px;
+    background: none;
+    color: white;
+    cursor: pointer;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-style: inset;
+    border-width: 0.5px;
+}
+
+.openbtn {
+    outline: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 100px;
+    text-align: center;
+    display: inline-block;
+    font-family: "Open Sans";
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+
+
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+
+    .sidebar a {
+        font-size: 18px;
+    }
+}

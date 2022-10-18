@@ -1,0 +1,29 @@
+<body>
+  <div id="mySidebar" class="sidebar">
+    <button href="javascript:void(0)" class="closebtn" (click)="closeNav()">×</button>
+    <br>
+    <a *ngIf="!user" routerLink="/login" class="button">Login</a>
+    <a *ngIf="!user" routerLink="/register" class="button">SignUp</a>
+    <a *ngIf="user" class="logout" (click)="logout()">Logout</a>
+    <hr color="gray">
+  </div>
+
+  <div id="main">
+    <div class="navbar">
+      <button class="openbtn" (click)="openNav()">☰</button>
+    </div>
+
+    <div class="header">
+      <h1>Welcome to The Simple Messenger !</h1>
+      <h4>A lightweight chatting application developed in Django and Angular with Socket.IO</h4><br>
+    </div>
+
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+
+    <footer class="site-footer">
+      <p>Created by Richeek Das. April 2020</p>
+    </footer>
+  </div>
+</body>
